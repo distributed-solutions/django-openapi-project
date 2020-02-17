@@ -1,46 +1,47 @@
 # {{ project_name }}
 
+## Features
+
+* Python 3.7 and Pipenv for package managment.
+* Django 2.2 LTS and Django REST Framework.
+* OpenAPI 3.0 specs support and Swagger UI out of the box.
+* Argon2 algo for strongest password hashing.
+* Dotenv file supported.
+* Docker and docker-compose files included.
+
 ## Gettting started
 
 ```bash
-django-admin startproject myproject \
-    --template=https://github.com/distributed-solutions/django-openapi-project/archive/master.zip
-    --name=Procfile \
-    --extension=py,md,env
-mv  .example.env .env
+django-admin startproject \
+    --template=https://github.com/distributed-solutions/django-openapi-project/archive/master.zip \
+    --extension=py,md,env \
+    myproject
 ```
 
 ```bash
-sudo pip3 install --upgrade pip pipenv
-pipenv run install --dev
-pipenv run manage.py runserver
+cd myproject
+mv .example.env .env
+sudo pip install --upgrade pipenv
+pipenv install --dev
+pipenv run ./manage.py runserver
 ```
 
-## Project requirements
-
-* Python 3.7 (and pipenv)
-* Django 3.0
-* Django REST Framework
-* Docker and docker-compose
-* `.env` file supported
-
-
-## Evironment
-
-* ``SECRET_KEY`` - secret seed
-* ``DATABASE_URL`` - database DSN
-* ``POSTGRES_PASSWORD`` - postgresql password
-
-## Docker
 ```bash
 docker-compose up
 ```
 
+## Settings
+
+* ``SECRET_KEY`` - django's secret seed
+* ``DATABASE_URL`` - database dsn (`sqlite3.db`)
+* ``POSTGRES_PASSWORD`` - password for postgresql server (`postgres` by default)
+
+## Testing
 
 ```bash
-# Build docker container
-make build
-# Release image
-make release
+pipenv run pytest
 ```
 
+## License
+
+See [LICENSE](./LICENSE)
