@@ -1,0 +1,11 @@
+setup:
+  addons:
+    - plan: heroku-postgresql
+      as: DATABASE_URL
+  config:
+    DEBUG: True
+build:
+  docker:
+    web: Dockerfile
+run:
+  web:  pipenv run gunicorn {{ project_name }}.wsgi
