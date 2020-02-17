@@ -1,7 +1,7 @@
 """ {{ project_name }} URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.11/topics/http/urls/
+    https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -26,7 +26,6 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_jwt.views import ObtainJSONWebToken, RefreshJSONWebToken
 
 from core.views import ping
-from audits.views import AuditViewSet
 
 # Schema and API docs
 schema_view = get_schema_view(

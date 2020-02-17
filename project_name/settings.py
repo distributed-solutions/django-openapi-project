@@ -2,10 +2,10 @@
 Django settings for {{ project_name }} project.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/1.11/topics/settings/
+https://docs.djangoproject.com/en/2.2/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.11/ref/settings/
+https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 import environ
 import sentry_sdk
@@ -13,18 +13,14 @@ from django.urls import reverse_lazy
 from sentry_sdk.integrations.django import DjangoIntegration
 
 
-# Django environ
+# Dotenv configiration
 root = environ.Path(__file__) - 2
 env = environ.Env(
     DEBUG=(bool, False),
-    # XXX: Don't use that key
-    SECRET_KEY=(str, 'ieveifohtohh8AhNgahnah8ieSich3eiB8Irie1Quainag3oow0eeshieph1iboi'),
+    SECRET_KEY=(str, 'CHANGE^^ME^^'),   # XXX
     # REDIS_URL=(str, 'redis://localhost:6379/10'),
     # CACHE_URL=(str, 'redis://localhost:6379/10'),
-    # EMAIL_FROM=(str, 'chatbot@spasibosb.ru'),
-    SENTRY_ENABLED=(bool, False),
-    SENTRY_DSN=(str,
-                'https://28e5032dd4424e30a23c416367be18a9@sentry.io/1863934'),
+    # EMAIL_FROM=(str, 'osintsev@gmail.com'),
 )
 environ.Env.read_env(env_file=root('.env'))
 
@@ -70,7 +66,6 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     'api',
-    'audits',
 ]
 
 MIDDLEWARE = [
